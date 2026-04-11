@@ -1,0 +1,2778 @@
+{
+  "metadata": {
+    "source": "lolalytics.com",
+    "window": "Last 30 Days",
+    "tier": "Emerald+",
+    "queue": "Ranked Solo/Duo",
+    "labels": [
+      "15-20",
+      "20-25",
+      "25-30",
+      "30-35",
+      "35-40",
+      "40+"
+    ],
+    "roles": [
+      "top",
+      "jungle",
+      "middle",
+      "bottom",
+      "support"
+    ],
+    "fetchedAt": "2026-04-11T09:14:54.906Z"
+  },
+  "champions": {
+    "aatrox": {
+      "name": "Aatrox",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 390353,
+        "overallWinRate": 51.56,
+        "wr": [
+          54.32,
+          51.77,
+          51.41,
+          50.88,
+          50.99,
+          51.63
+        ]
+      }
+    },
+    "ahri": {
+      "name": "Ahri",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 721818,
+        "overallWinRate": 52.8,
+        "wr": [
+          50.61,
+          52.83,
+          53.64,
+          52.67,
+          52.68,
+          52.19
+        ]
+      }
+    },
+    "akali": {
+      "name": "Akali",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 368644,
+        "overallWinRate": 51.7,
+        "wr": [
+          56.67,
+          51.88,
+          51.21,
+          51.24,
+          50.64,
+          50.75
+        ]
+      }
+    },
+    "akshan": {
+      "name": "Akshan",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 153443,
+        "overallWinRate": 52.29,
+        "wr": [
+          56.87,
+          53.33,
+          51.81,
+          51.5,
+          51.97,
+          49.97
+        ]
+      }
+    },
+    "alistar": {
+      "name": "Alistar",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 237764,
+        "overallWinRate": 50.86,
+        "wr": [
+          46.86,
+          49.68,
+          50.95,
+          52.09,
+          52.66,
+          51.36
+        ]
+      }
+    },
+    "ambessa": {
+      "name": "Ambessa",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 254786,
+        "overallWinRate": 50.49,
+        "wr": [
+          50.21,
+          48.78,
+          50.21,
+          51.41,
+          51.03,
+          51.69
+        ]
+      }
+    },
+    "amumu": {
+      "name": "Amumu",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 123373,
+        "overallWinRate": 53.17,
+        "wr": [
+          51.16,
+          53.33,
+          52.32,
+          53.7,
+          54.2,
+          54.37
+        ]
+      }
+    },
+    "anivia": {
+      "name": "Anivia",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 201263,
+        "overallWinRate": 53.12,
+        "wr": [
+          52.71,
+          56.01,
+          54.78,
+          51.93,
+          50.05,
+          49.8
+        ]
+      }
+    },
+    "annie": {
+      "name": "Annie",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 133902,
+        "overallWinRate": 53.74,
+        "wr": [
+          45.1,
+          49.34,
+          53.65,
+          56.38,
+          57.46,
+          55.64
+        ]
+      }
+    },
+    "aphelios": {
+      "name": "Aphelios",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 317771,
+        "overallWinRate": 50.38,
+        "wr": [
+          44.84,
+          46.56,
+          49.82,
+          52.99,
+          54.21,
+          54.65
+        ]
+      }
+    },
+    "ashe": {
+      "name": "Ashe",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 688271,
+        "overallWinRate": 53.48,
+        "wr": [
+          50.29,
+          54.92,
+          54.47,
+          52.86,
+          53.08,
+          53.04
+        ]
+      }
+    },
+    "aurelionsol": {
+      "name": "Aurelion Sol",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 170476,
+        "overallWinRate": 53.48,
+        "wr": [
+          43.46,
+          44.31,
+          51.71,
+          57.4,
+          60,
+          60.52
+        ]
+      }
+    },
+    "aurora": {
+      "name": "Aurora",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 216123,
+        "overallWinRate": 50.82,
+        "wr": [
+          51.31,
+          48.94,
+          50.25,
+          51.31,
+          52.09,
+          52.93
+        ]
+      }
+    },
+    "azir": {
+      "name": "Azir",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 136887,
+        "overallWinRate": 47.33,
+        "wr": [
+          38.33,
+          43.64,
+          47.22,
+          49.7,
+          51.96,
+          52.46
+        ]
+      }
+    },
+    "bard": {
+      "name": "Bard",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 341000,
+        "overallWinRate": 51.97,
+        "wr": [
+          53.69,
+          53.5,
+          52.27,
+          51.51,
+          50.32,
+          49.22
+        ]
+      }
+    },
+    "belveth": {
+      "name": "Bel'Veth",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 97734,
+        "overallWinRate": 53.15,
+        "wr": [
+          56.86,
+          59.67,
+          51.85,
+          49.51,
+          49.7,
+          50.8
+        ]
+      }
+    },
+    "blitzcrank": {
+      "name": "Blitzcrank",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 292604,
+        "overallWinRate": 52.3,
+        "wr": [
+          52.8,
+          52.01,
+          52.27,
+          52.59,
+          51.73,
+          52.15
+        ]
+      }
+    },
+    "brand": {
+      "name": "Brand",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 150389,
+        "overallWinRate": 53.05,
+        "wr": [
+          50.75,
+          56.47,
+          54.6,
+          52.39,
+          50.78,
+          51.65
+        ]
+      }
+    },
+    "braum": {
+      "name": "Braum",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 328214,
+        "overallWinRate": 52.76,
+        "wr": [
+          48.37,
+          50.03,
+          52.45,
+          54.9,
+          55.12,
+          55.04
+        ]
+      }
+    },
+    "briar": {
+      "name": "Briar",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 286911,
+        "overallWinRate": 53.82,
+        "wr": [
+          56.34,
+          53.58,
+          54.43,
+          53.44,
+          52.4,
+          52.99
+        ]
+      }
+    },
+    "caitlyn": {
+      "name": "Caitlyn",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 928075,
+        "overallWinRate": 51.74,
+        "wr": [
+          49.88,
+          51.88,
+          51.27,
+          51.84,
+          52.38,
+          54.63
+        ]
+      }
+    },
+    "camille": {
+      "name": "Camille",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 177318,
+        "overallWinRate": 51.93,
+        "wr": [
+          51.52,
+          52.22,
+          52.13,
+          51.85,
+          51.52,
+          51.72
+        ]
+      }
+    },
+    "cassiopeia": {
+      "name": "Cassiopeia",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 67514,
+        "overallWinRate": 51.42,
+        "wr": [
+          49.05,
+          50.68,
+          51.61,
+          52.39,
+          51.45,
+          51.38
+        ]
+      }
+    },
+    "chogath": {
+      "name": "Cho'Gath",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 140404,
+        "overallWinRate": 51.82,
+        "wr": [
+          47.78,
+          48.52,
+          51.66,
+          52.94,
+          53.79,
+          54.49
+        ]
+      }
+    },
+    "corki": {
+      "name": "Corki",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 206743,
+        "overallWinRate": 50.24,
+        "wr": [
+          51.09,
+          52.97,
+          51.07,
+          48.66,
+          48.4,
+          49.84
+        ]
+      }
+    },
+    "darius": {
+      "name": "Darius",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 382457,
+        "overallWinRate": 51.46,
+        "wr": [
+          52.45,
+          51.36,
+          51.24,
+          51.37,
+          51.48,
+          51.97
+        ]
+      }
+    },
+    "diana": {
+      "name": "Diana",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 213916,
+        "overallWinRate": 51.95,
+        "wr": [
+          51.44,
+          56.45,
+          52.76,
+          49.74,
+          49.85,
+          49.92
+        ]
+      }
+    },
+    "draven": {
+      "name": "Draven",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 248178,
+        "overallWinRate": 51.66,
+        "wr": [
+          53.52,
+          53.3,
+          51.22,
+          50.84,
+          51.27,
+          50.85
+        ]
+      }
+    },
+    "drmundo": {
+      "name": "Dr. Mundo",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 206729,
+        "overallWinRate": 53.29,
+        "wr": [
+          47.3,
+          49.23,
+          53.48,
+          55.4,
+          55.8,
+          54.88
+        ]
+      }
+    },
+    "ekko": {
+      "name": "Ekko",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 222558,
+        "overallWinRate": 52.1,
+        "wr": [
+          53.44,
+          54.74,
+          52.82,
+          50.52,
+          50.49,
+          51.67
+        ]
+      }
+    },
+    "elise": {
+      "name": "Elise",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 134223,
+        "overallWinRate": 52.48,
+        "wr": [
+          56.02,
+          55.73,
+          51.9,
+          50.93,
+          51.08,
+          51.79
+        ]
+      }
+    },
+    "evelynn": {
+      "name": "Evelynn",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 130653,
+        "overallWinRate": 52.9,
+        "wr": [
+          59.16,
+          51.51,
+          50.57,
+          52.89,
+          54.34,
+          56.41
+        ]
+      }
+    },
+    "ezreal": {
+      "name": "Ezreal",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 1092397,
+        "overallWinRate": 49.71,
+        "wr": [
+          51.84,
+          53.55,
+          51.12,
+          47.64,
+          45.91,
+          45.37
+        ]
+      }
+    },
+    "fiddlesticks": {
+      "name": "Fiddlesticks",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 148555,
+        "overallWinRate": 53.66,
+        "wr": [
+          55.22,
+          55.27,
+          53.15,
+          52.97,
+          54.21,
+          53.12
+        ]
+      }
+    },
+    "fiora": {
+      "name": "Fiora",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 206113,
+        "overallWinRate": 51.67,
+        "wr": [
+          51.04,
+          53.09,
+          51.44,
+          50.63,
+          52.21,
+          54.67
+        ]
+      }
+    },
+    "fizz": {
+      "name": "Fizz",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 261653,
+        "overallWinRate": 53.21,
+        "wr": [
+          58.33,
+          53.91,
+          52.66,
+          52.41,
+          52.51,
+          52.83
+        ]
+      }
+    },
+    "galio": {
+      "name": "Galio",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 214407,
+        "overallWinRate": 50.71,
+        "wr": [
+          45.67,
+          46.53,
+          50.88,
+          53,
+          53.69,
+          53.82
+        ]
+      }
+    },
+    "gangplank": {
+      "name": "Gangplank",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 252309,
+        "overallWinRate": 52.4,
+        "wr": [
+          52.12,
+          52.35,
+          51.97,
+          52.61,
+          52.88,
+          52.77
+        ]
+      }
+    },
+    "garen": {
+      "name": "Garen",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 555251,
+        "overallWinRate": 53.53,
+        "wr": [
+          54.19,
+          55.45,
+          53.89,
+          52.75,
+          52.51,
+          52.43
+        ]
+      }
+    },
+    "gnar": {
+      "name": "Gnar",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 247634,
+        "overallWinRate": 51.26,
+        "wr": [
+          51.89,
+          51.84,
+          51.35,
+          50.88,
+          51.01,
+          50.54
+        ]
+      }
+    },
+    "gragas": {
+      "name": "Gragas",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 114107,
+        "overallWinRate": 50.94,
+        "wr": [
+          51.33,
+          51.5,
+          51.61,
+          50.91,
+          49.47,
+          48.14
+        ]
+      }
+    },
+    "graves": {
+      "name": "Graves",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 812327,
+        "overallWinRate": 52.12,
+        "wr": [
+          48.83,
+          51.06,
+          52.47,
+          53.17,
+          52.91,
+          51.9
+        ]
+      }
+    },
+    "gwen": {
+      "name": "Gwen",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 141003,
+        "overallWinRate": 50.62,
+        "wr": [
+          45.27,
+          48.64,
+          50,
+          51.59,
+          54.16,
+          55.62
+        ]
+      }
+    },
+    "hecarim": {
+      "name": "Hecarim",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 208025,
+        "overallWinRate": 51.2,
+        "wr": [
+          57.52,
+          52.98,
+          50.98,
+          49.44,
+          48.85,
+          48.22
+        ]
+      }
+    },
+    "heimerdinger": {
+      "name": "Heimerdinger",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 62185,
+        "overallWinRate": 52.5,
+        "wr": [
+          57.39,
+          55.6,
+          51.57,
+          51.17,
+          51.03,
+          53.25
+        ]
+      }
+    },
+    "hwei": {
+      "name": "Hwei",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 197858,
+        "overallWinRate": 51.99,
+        "wr": [
+          47.99,
+          53.56,
+          52.65,
+          51.83,
+          51.75,
+          52.07
+        ]
+      }
+    },
+    "illaoi": {
+      "name": "Illaoi",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 129546,
+        "overallWinRate": 52.15,
+        "wr": [
+          60.52,
+          58.18,
+          52.19,
+          48.46,
+          48.85,
+          51.45
+        ]
+      }
+    },
+    "irelia": {
+      "name": "Irelia",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 258928,
+        "overallWinRate": 52.18,
+        "wr": [
+          57.27,
+          58.74,
+          52.38,
+          48.13,
+          47.16,
+          48.9
+        ]
+      }
+    },
+    "ivern": {
+      "name": "Ivern",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 62379,
+        "overallWinRate": 52.93,
+        "wr": [
+          50.95,
+          51.48,
+          54,
+          53.15,
+          53.33,
+          51.55
+        ]
+      }
+    },
+    "janna": {
+      "name": "Janna",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 214041,
+        "overallWinRate": 52.95,
+        "wr": [
+          51.64,
+          52.7,
+          52.64,
+          53.41,
+          53.47,
+          54.16
+        ]
+      }
+    },
+    "jarvaniv": {
+      "name": "Jarvan IV",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 382266,
+        "overallWinRate": 51.94,
+        "wr": [
+          51.8,
+          51.86,
+          51.98,
+          51.91,
+          51.98,
+          52.36
+        ]
+      }
+    },
+    "jax": {
+      "name": "Jax",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 323699,
+        "overallWinRate": 51.21,
+        "wr": [
+          50.47,
+          51.69,
+          51.42,
+          50.84,
+          51.04,
+          52.32
+        ]
+      }
+    },
+    "jayce": {
+      "name": "Jayce",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 234677,
+        "overallWinRate": 49.84,
+        "wr": [
+          50.3,
+          52.53,
+          50.79,
+          48.31,
+          47.62,
+          47.64
+        ]
+      }
+    },
+    "jhin": {
+      "name": "Jhin",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 942945,
+        "overallWinRate": 51.63,
+        "wr": [
+          53.85,
+          50.45,
+          50.78,
+          51.6,
+          52.48,
+          53.51
+        ]
+      }
+    },
+    "jinx": {
+      "name": "Jinx",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 910996,
+        "overallWinRate": 53.58,
+        "wr": [
+          51.34,
+          54.85,
+          53.39,
+          53.38,
+          54.31,
+          54.09
+        ]
+      }
+    },
+    "kaisa": {
+      "name": "Kai'Sa",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 934342,
+        "overallWinRate": 50.6,
+        "wr": [
+          48.62,
+          49.82,
+          51.66,
+          51.24,
+          49.59,
+          48.12
+        ]
+      }
+    },
+    "kalista": {
+      "name": "Kalista",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 64582,
+        "overallWinRate": 48.92,
+        "wr": [
+          49.49,
+          50.2,
+          49,
+          48.4,
+          47.63,
+          48.01
+        ]
+      }
+    },
+    "karma": {
+      "name": "Karma",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 675058,
+        "overallWinRate": 51.72,
+        "wr": [
+          53.99,
+          53.99,
+          51.65,
+          50.64,
+          50.21,
+          50.23
+        ]
+      }
+    },
+    "karthus": {
+      "name": "Karthus",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 80712,
+        "overallWinRate": 50.81,
+        "wr": [
+          53.9,
+          52.19,
+          48.97,
+          49.47,
+          52.26,
+          54.07
+        ]
+      }
+    },
+    "kassadin": {
+      "name": "Kassadin",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 168960,
+        "overallWinRate": 51.47,
+        "wr": [
+          44.13,
+          40.09,
+          50.86,
+          57.88,
+          56.99,
+          54.83
+        ]
+      }
+    },
+    "katarina": {
+      "name": "Katarina",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 389863,
+        "overallWinRate": 52.49,
+        "wr": [
+          61.08,
+          53.8,
+          51.67,
+          50.92,
+          50.71,
+          50.74
+        ]
+      }
+    },
+    "kayle": {
+      "name": "Kayle",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 190918,
+        "overallWinRate": 54.5,
+        "wr": [
+          47.57,
+          43.89,
+          52.3,
+          59.64,
+          61.28,
+          60.89
+        ]
+      }
+    },
+    "kayn": {
+      "name": "Kayn",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 322884,
+        "overallWinRate": 52.47,
+        "wr": [
+          49.99,
+          50.82,
+          52.69,
+          53.26,
+          52.67,
+          53.43
+        ]
+      }
+    },
+    "kennen": {
+      "name": "Kennen",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 120873,
+        "overallWinRate": 51.86,
+        "wr": [
+          52.72,
+          51.85,
+          51.53,
+          51.82,
+          52.2,
+          51.62
+        ]
+      }
+    },
+    "khazix": {
+      "name": "Kha'Zix",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 325467,
+        "overallWinRate": 51.03,
+        "wr": [
+          50.02,
+          48.06,
+          50.34,
+          52.81,
+          52.52,
+          50.85
+        ]
+      }
+    },
+    "kindred": {
+      "name": "Kindred",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 137259,
+        "overallWinRate": 51.98,
+        "wr": [
+          52.44,
+          52.32,
+          51.13,
+          51.65,
+          53.26,
+          54.37
+        ]
+      }
+    },
+    "kled": {
+      "name": "Kled",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 93871,
+        "overallWinRate": 52.91,
+        "wr": [
+          58.5,
+          58.46,
+          53.7,
+          48.98,
+          48.97,
+          49.91
+        ]
+      }
+    },
+    "kogmaw": {
+      "name": "Kog'Maw",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 108553,
+        "overallWinRate": 54.4,
+        "wr": [
+          57.81,
+          56.41,
+          54.84,
+          53.67,
+          52.54,
+          51.78
+        ]
+      }
+    },
+    "ksante": {
+      "name": "K'Sante",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 202833,
+        "overallWinRate": 48.17,
+        "wr": [
+          53.32,
+          47.59,
+          47,
+          47.68,
+          48.28,
+          49.1
+        ]
+      }
+    },
+    "leblanc": {
+      "name": "LeBlanc",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 248398,
+        "overallWinRate": 51.46,
+        "wr": [
+          59.42,
+          50.87,
+          50.36,
+          50.88,
+          50.27,
+          50.95
+        ]
+      }
+    },
+    "leesin": {
+      "name": "Lee Sin",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 664722,
+        "overallWinRate": 51.62,
+        "wr": [
+          57.31,
+          54.75,
+          51.65,
+          49.12,
+          48.3,
+          48.95
+        ]
+      }
+    },
+    "leona": {
+      "name": "Leona",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 388556,
+        "overallWinRate": 52.85,
+        "wr": [
+          53.9,
+          53.17,
+          53.11,
+          52.97,
+          51.5,
+          50.63
+        ]
+      }
+    },
+    "lillia": {
+      "name": "Lillia",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 149854,
+        "overallWinRate": 51.58,
+        "wr": [
+          50.83,
+          50.95,
+          51.87,
+          50.96,
+          53.11,
+          52.1
+        ]
+      }
+    },
+    "lissandra": {
+      "name": "Lissandra",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 272569,
+        "overallWinRate": 53.1,
+        "wr": [
+          55.1,
+          54.57,
+          53.09,
+          52.39,
+          51.98,
+          52.19
+        ]
+      }
+    },
+    "lucian": {
+      "name": "Lucian",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 413842,
+        "overallWinRate": 50.63,
+        "wr": [
+          52.31,
+          48.75,
+          50.15,
+          51.05,
+          51.85,
+          50.8
+        ]
+      }
+    },
+    "lulu": {
+      "name": "Lulu",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 598390,
+        "overallWinRate": 51.53,
+        "wr": [
+          50.46,
+          49.39,
+          50.62,
+          52.8,
+          54.3,
+          53.87
+        ]
+      }
+    },
+    "lux": {
+      "name": "Lux",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 288133,
+        "overallWinRate": 51.36,
+        "wr": [
+          56.95,
+          56.26,
+          51.88,
+          48.86,
+          48.66,
+          51.01
+        ]
+      }
+    },
+    "malphite": {
+      "name": "Malphite",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 353414,
+        "overallWinRate": 52.74,
+        "wr": [
+          54.19,
+          52.74,
+          52.38,
+          53.11,
+          52.35,
+          51.42
+        ]
+      }
+    },
+    "malzahar": {
+      "name": "Malzahar",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 367445,
+        "overallWinRate": 52.86,
+        "wr": [
+          42.74,
+          52.96,
+          54.13,
+          53.66,
+          53.29,
+          52.69
+        ]
+      }
+    },
+    "maokai": {
+      "name": "Maokai",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 118701,
+        "overallWinRate": 53.53,
+        "wr": [
+          49.87,
+          52.98,
+          53.84,
+          54.39,
+          53.62,
+          54.38
+        ]
+      }
+    },
+    "masteryi": {
+      "name": "Master Yi",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 320013,
+        "overallWinRate": 52.85,
+        "wr": [
+          52.81,
+          51.11,
+          52.26,
+          53.87,
+          53.78,
+          54.23
+        ]
+      }
+    },
+    "mel": {
+      "name": "Mel",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 352639,
+        "overallWinRate": 49.98,
+        "wr": [
+          57.62,
+          53.46,
+          48.87,
+          47.86,
+          48.65,
+          50.57
+        ]
+      }
+    },
+    "milio": {
+      "name": "Milio",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 396112,
+        "overallWinRate": 52.95,
+        "wr": [
+          45.88,
+          48.57,
+          52.57,
+          55.06,
+          56.85,
+          57.04
+        ]
+      }
+    },
+    "missfortune": {
+      "name": "Miss Fortune",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 453547,
+        "overallWinRate": 53.14,
+        "wr": [
+          49.57,
+          50.97,
+          52.61,
+          54.26,
+          55.56,
+          54.36
+        ]
+      }
+    },
+    "wukong": {
+      "name": "Wukong",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 132492,
+        "overallWinRate": 51.87,
+        "wr": [
+          48.75,
+          51.41,
+          52.52,
+          52.16,
+          51.76,
+          52.7
+        ]
+      }
+    },
+    "mordekaiser": {
+      "name": "Mordekaiser",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 324650,
+        "overallWinRate": 52.33,
+        "wr": [
+          53.98,
+          52.69,
+          51.65,
+          52.33,
+          52.54,
+          52.37
+        ]
+      }
+    },
+    "morgana": {
+      "name": "Morgana",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 237208,
+        "overallWinRate": 52.16,
+        "wr": [
+          52.46,
+          52.82,
+          52.1,
+          51.63,
+          52.32,
+          52.79
+        ]
+      }
+    },
+    "naafiri": {
+      "name": "Naafiri",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 279261,
+        "overallWinRate": 52.82,
+        "wr": [
+          52,
+          53.79,
+          54.07,
+          52.58,
+          50.51,
+          49.27
+        ]
+      }
+    },
+    "nami": {
+      "name": "Nami",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 878599,
+        "overallWinRate": 52.99,
+        "wr": [
+          51.96,
+          53.32,
+          53.08,
+          52.96,
+          53.23,
+          52.59
+        ]
+      }
+    },
+    "nasus": {
+      "name": "Nasus",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 210404,
+        "overallWinRate": 52.22,
+        "wr": [
+          55.44,
+          50.12,
+          51.45,
+          52.59,
+          53.36,
+          53.69
+        ]
+      }
+    },
+    "nautilus": {
+      "name": "Nautilus",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 574456,
+        "overallWinRate": 51.36,
+        "wr": [
+          49.64,
+          49.15,
+          51.36,
+          52.37,
+          52.96,
+          53.4
+        ]
+      }
+    },
+    "neeko": {
+      "name": "Neeko",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 124115,
+        "overallWinRate": 50.2,
+        "wr": [
+          50.11,
+          52.55,
+          50.45,
+          49.55,
+          48.74,
+          49.78
+        ]
+      }
+    },
+    "nidalee": {
+      "name": "Nidalee",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 123775,
+        "overallWinRate": 51.01,
+        "wr": [
+          53.7,
+          53.15,
+          50.97,
+          49.02,
+          49.07,
+          51.22
+        ]
+      }
+    },
+    "nilah": {
+      "name": "Nilah",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 92375,
+        "overallWinRate": 54.93,
+        "wr": [
+          53.38,
+          51.8,
+          53.86,
+          56.78,
+          58.27,
+          58.27
+        ]
+      }
+    },
+    "nocturne": {
+      "name": "Nocturne",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 425581,
+        "overallWinRate": 53.51,
+        "wr": [
+          56.23,
+          54.91,
+          53.73,
+          52.65,
+          52.41,
+          52.31
+        ]
+      }
+    },
+    "nunu": {
+      "name": "Nunu & Willump",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 129038,
+        "overallWinRate": 53.38,
+        "wr": [
+          55.06,
+          57.45,
+          53.85,
+          51.09,
+          51.2,
+          51.37
+        ]
+      }
+    },
+    "olaf": {
+      "name": "Olaf",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 138979,
+        "overallWinRate": 53.17,
+        "wr": [
+          54.59,
+          54.72,
+          53.6,
+          52.29,
+          51.64,
+          51.27
+        ]
+      }
+    },
+    "orianna": {
+      "name": "Orianna",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 259614,
+        "overallWinRate": 49.27,
+        "wr": [
+          45.38,
+          47.92,
+          49.35,
+          50.17,
+          51.43,
+          51.02
+        ]
+      }
+    },
+    "ornn": {
+      "name": "Ornn",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 309656,
+        "overallWinRate": 53.43,
+        "wr": [
+          45.59,
+          47.34,
+          52.86,
+          56.9,
+          57.55,
+          55.2
+        ]
+      }
+    },
+    "pantheon": {
+      "name": "Pantheon",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 157689,
+        "overallWinRate": 50.05,
+        "wr": [
+          54.42,
+          51.69,
+          50.45,
+          48.61,
+          47.79,
+          49.8
+        ]
+      }
+    },
+    "poppy": {
+      "name": "Poppy",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 90590,
+        "overallWinRate": 51.9,
+        "wr": [
+          52.92,
+          52.24,
+          52.28,
+          51.27,
+          51.46,
+          51.29
+        ]
+      }
+    },
+    "pyke": {
+      "name": "Pyke",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 313578,
+        "overallWinRate": 50.84,
+        "wr": [
+          58.12,
+          52.02,
+          50.53,
+          49.89,
+          48.77,
+          47.8
+        ]
+      }
+    },
+    "qiyana": {
+      "name": "Qiyana",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 129628,
+        "overallWinRate": 51.31,
+        "wr": [
+          55.91,
+          48.97,
+          50.58,
+          51.56,
+          52.12,
+          50.68
+        ]
+      }
+    },
+    "quinn": {
+      "name": "Quinn",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 59862,
+        "overallWinRate": 53,
+        "wr": [
+          51.78,
+          51.12,
+          52.77,
+          53.57,
+          54.25,
+          54.18
+        ]
+      }
+    },
+    "rakan": {
+      "name": "Rakan",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 221708,
+        "overallWinRate": 51.72,
+        "wr": [
+          46.81,
+          48.11,
+          51.73,
+          53.92,
+          54.93,
+          54.06
+        ]
+      }
+    },
+    "rammus": {
+      "name": "Rammus",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 88750,
+        "overallWinRate": 54.65,
+        "wr": [
+          51.32,
+          51.58,
+          53.84,
+          55.88,
+          57.79,
+          56.22
+        ]
+      }
+    },
+    "reksai": {
+      "name": "Rek'Sai",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 123371,
+        "overallWinRate": 53.55,
+        "wr": [
+          56.21,
+          56.18,
+          53.68,
+          51.67,
+          52.16,
+          52.01
+        ]
+      }
+    },
+    "rell": {
+      "name": "Rell",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 160499,
+        "overallWinRate": 52.05,
+        "wr": [
+          49.57,
+          51.33,
+          51.72,
+          53.07,
+          53.63,
+          52.12
+        ]
+      }
+    },
+    "renata": {
+      "name": "Renata Glasc",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 57500,
+        "overallWinRate": 51.5,
+        "wr": [
+          44.85,
+          46.97,
+          51.08,
+          53.93,
+          54.96,
+          53.9
+        ]
+      }
+    },
+    "renekton": {
+      "name": "Renekton",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 309184,
+        "overallWinRate": 51.01,
+        "wr": [
+          52.72,
+          51.18,
+          51.48,
+          50.51,
+          49.97,
+          49.51
+        ]
+      }
+    },
+    "rengar": {
+      "name": "Rengar",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 211415,
+        "overallWinRate": 49.89,
+        "wr": [
+          46.82,
+          43.95,
+          48.65,
+          52.72,
+          53.05,
+          53.61
+        ]
+      }
+    },
+    "riven": {
+      "name": "Riven",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 188137,
+        "overallWinRate": 51.74,
+        "wr": [
+          47.83,
+          49.19,
+          51.78,
+          52.95,
+          54.21,
+          53.24
+        ]
+      }
+    },
+    "rumble": {
+      "name": "Rumble",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 138613,
+        "overallWinRate": 50.31,
+        "wr": [
+          47.66,
+          48.47,
+          50.36,
+          51.88,
+          51.04,
+          50.36
+        ]
+      }
+    },
+    "ryze": {
+      "name": "Ryze",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 205285,
+        "overallWinRate": 48.46,
+        "wr": [
+          40.94,
+          46.34,
+          49.73,
+          49.86,
+          49.78,
+          51.2
+        ]
+      }
+    },
+    "samira": {
+      "name": "Samira",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 304633,
+        "overallWinRate": 53.12,
+        "wr": [
+          55.5,
+          50.71,
+          52.07,
+          54.2,
+          54.76,
+          54.09
+        ]
+      }
+    },
+    "sejuani": {
+      "name": "Sejuani",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 99998,
+        "overallWinRate": 52.24,
+        "wr": [
+          51.71,
+          52.96,
+          52.16,
+          51.65,
+          52.72,
+          53.82
+        ]
+      }
+    },
+    "senna": {
+      "name": "Senna",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 267430,
+        "overallWinRate": 51.76,
+        "wr": [
+          47.65,
+          51.76,
+          52.1,
+          51.81,
+          52.52,
+          53.98
+        ]
+      }
+    },
+    "seraphine": {
+      "name": "Seraphine",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 327850,
+        "overallWinRate": 53.08,
+        "wr": [
+          50.64,
+          53.66,
+          52.87,
+          52.85,
+          54.52,
+          54.66
+        ]
+      }
+    },
+    "sett": {
+      "name": "Sett",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 314298,
+        "overallWinRate": 52.77,
+        "wr": [
+          50.34,
+          52.9,
+          52.57,
+          52.56,
+          53.9,
+          55.32
+        ]
+      }
+    },
+    "shaco": {
+      "name": "Shaco",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 224555,
+        "overallWinRate": 52.04,
+        "wr": [
+          53.84,
+          49.53,
+          49.49,
+          52.43,
+          54.33,
+          56.9
+        ]
+      }
+    },
+    "shen": {
+      "name": "Shen",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 253643,
+        "overallWinRate": 53.2,
+        "wr": [
+          55.46,
+          51.82,
+          53.22,
+          53.75,
+          52.6,
+          51.89
+        ]
+      }
+    },
+    "shyvana": {
+      "name": "Shyvana",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 462091,
+        "overallWinRate": 50.4,
+        "wr": [
+          43.32,
+          48.09,
+          50.45,
+          52,
+          52.77,
+          53.34
+        ]
+      }
+    },
+    "singed": {
+      "name": "Singed",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 152912,
+        "overallWinRate": 53.96,
+        "wr": [
+          49.62,
+          51,
+          54.04,
+          56.06,
+          55.06,
+          53.09
+        ]
+      }
+    },
+    "sion": {
+      "name": "Sion",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 273764,
+        "overallWinRate": 51.81,
+        "wr": [
+          51.41,
+          54.31,
+          53.04,
+          50.6,
+          49.79,
+          50.25
+        ]
+      }
+    },
+    "sivir": {
+      "name": "Sivir",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 337761,
+        "overallWinRate": 51.9,
+        "wr": [
+          47.46,
+          50.13,
+          51.41,
+          53.17,
+          54.75,
+          54.51
+        ]
+      }
+    },
+    "skarner": {
+      "name": "Skarner",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 53360,
+        "overallWinRate": 51.48,
+        "wr": [
+          53.58,
+          51.76,
+          51.12,
+          50.69,
+          52.03,
+          52.45
+        ]
+      }
+    },
+    "smolder": {
+      "name": "Smolder",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 558699,
+        "overallWinRate": 52.75,
+        "wr": [
+          53.69,
+          50.13,
+          51.3,
+          53.03,
+          54.82,
+          57.12
+        ]
+      }
+    },
+    "sona": {
+      "name": "Sona",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 273090,
+        "overallWinRate": 53.59,
+        "wr": [
+          45.19,
+          51.91,
+          54.02,
+          55.03,
+          55.94,
+          55.65
+        ]
+      }
+    },
+    "soraka": {
+      "name": "Soraka",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 299701,
+        "overallWinRate": 53.06,
+        "wr": [
+          53.53,
+          51.58,
+          52.33,
+          53.71,
+          54.34,
+          54.88
+        ]
+      }
+    },
+    "swain": {
+      "name": "Swain",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 149329,
+        "overallWinRate": 50.12,
+        "wr": [
+          54.11,
+          52.7,
+          49.61,
+          48.33,
+          49.41,
+          51.74
+        ]
+      }
+    },
+    "sylas": {
+      "name": "Sylas",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 396188,
+        "overallWinRate": 51.01,
+        "wr": [
+          53.16,
+          50.27,
+          50.86,
+          50.92,
+          50.86,
+          50.69
+        ]
+      }
+    },
+    "syndra": {
+      "name": "Syndra",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 278504,
+        "overallWinRate": 51.29,
+        "wr": [
+          44.97,
+          50.26,
+          51.95,
+          52.22,
+          52.27,
+          51.86
+        ]
+      }
+    },
+    "tahmkench": {
+      "name": "Tahm Kench",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 117323,
+        "overallWinRate": 52.06,
+        "wr": [
+          57.12,
+          54.37,
+          51.58,
+          50.6,
+          50.52,
+          52.69
+        ]
+      }
+    },
+    "taliyah": {
+      "name": "Taliyah",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 85750,
+        "overallWinRate": 49.61,
+        "wr": [
+          43,
+          49.65,
+          50.34,
+          50.64,
+          50.34,
+          50.74
+        ]
+      }
+    },
+    "talon": {
+      "name": "Talon",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 227341,
+        "overallWinRate": 50.72,
+        "wr": [
+          51.67,
+          50.71,
+          51.26,
+          51.12,
+          49.3,
+          48.12
+        ]
+      }
+    },
+    "taric": {
+      "name": "Taric",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 70055,
+        "overallWinRate": 53.64,
+        "wr": [
+          52.01,
+          52.89,
+          53.38,
+          54.53,
+          54.57,
+          54.45
+        ]
+      }
+    },
+    "teemo": {
+      "name": "Teemo",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 145620,
+        "overallWinRate": 52.93,
+        "wr": [
+          49.14,
+          49.56,
+          51.93,
+          54.33,
+          55.12,
+          55.89
+        ]
+      }
+    },
+    "thresh": {
+      "name": "Thresh",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 791481,
+        "overallWinRate": 52.87,
+        "wr": [
+          54.57,
+          53.23,
+          52.6,
+          52.86,
+          52.52,
+          51.51
+        ]
+      }
+    },
+    "tristana": {
+      "name": "Tristana",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 225881,
+        "overallWinRate": 52.06,
+        "wr": [
+          53.53,
+          51.58,
+          51.16,
+          52.05,
+          53.55,
+          53.29
+        ]
+      }
+    },
+    "trundle": {
+      "name": "Trundle",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 73830,
+        "overallWinRate": 51.06,
+        "wr": [
+          52.03,
+          56.16,
+          51.46,
+          48.28,
+          49.32,
+          50.56
+        ]
+      }
+    },
+    "tryndamere": {
+      "name": "Tryndamere",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 146147,
+        "overallWinRate": 51.7,
+        "wr": [
+          57.2,
+          54.19,
+          51.45,
+          49.73,
+          50.38,
+          50.29
+        ]
+      }
+    },
+    "twistedfate": {
+      "name": "Twisted Fate",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 284635,
+        "overallWinRate": 52.58,
+        "wr": [
+          49.53,
+          53.78,
+          53.51,
+          52.29,
+          52.1,
+          50.91
+        ]
+      }
+    },
+    "twitch": {
+      "name": "Twitch",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 298409,
+        "overallWinRate": 52.49,
+        "wr": [
+          51.5,
+          43.48,
+          49.65,
+          55.82,
+          58.32,
+          59.41
+        ]
+      }
+    },
+    "udyr": {
+      "name": "Udyr",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 91884,
+        "overallWinRate": 52.53,
+        "wr": [
+          52.32,
+          53.67,
+          53.21,
+          52.03,
+          51.17,
+          51.31
+        ]
+      }
+    },
+    "urgot": {
+      "name": "Urgot",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 145212,
+        "overallWinRate": 52.88,
+        "wr": [
+          52.12,
+          56.16,
+          54.44,
+          51.51,
+          50.11,
+          50.89
+        ]
+      }
+    },
+    "varus": {
+      "name": "Varus",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 227108,
+        "overallWinRate": 49.31,
+        "wr": [
+          52.14,
+          51.87,
+          50.28,
+          48.26,
+          46.24,
+          45.45
+        ]
+      }
+    },
+    "vayne": {
+      "name": "Vayne",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 366294,
+        "overallWinRate": 52.85,
+        "wr": [
+          52.96,
+          49.13,
+          52.36,
+          54.36,
+          54.41,
+          53.33
+        ]
+      }
+    },
+    "veigar": {
+      "name": "Veigar",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 245904,
+        "overallWinRate": 53.48,
+        "wr": [
+          45.98,
+          50.72,
+          52.65,
+          54.77,
+          56.84,
+          57.03
+        ]
+      }
+    },
+    "velkoz": {
+      "name": "Vel'Koz",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 157138,
+        "overallWinRate": 52.58,
+        "wr": [
+          57.98,
+          58.11,
+          53.91,
+          50.13,
+          49.41,
+          50.37
+        ]
+      }
+    },
+    "vex": {
+      "name": "Vex",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 169232,
+        "overallWinRate": 53.83,
+        "wr": [
+          54.77,
+          56.03,
+          53.93,
+          52.9,
+          52.81,
+          53.12
+        ]
+      }
+    },
+    "vi": {
+      "name": "Vi",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 295782,
+        "overallWinRate": 51.41,
+        "wr": [
+          47.72,
+          49.91,
+          51.55,
+          52.48,
+          52.59,
+          53.77
+        ]
+      }
+    },
+    "viego": {
+      "name": "Viego",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 603163,
+        "overallWinRate": 50.69,
+        "wr": [
+          52.67,
+          49.04,
+          49.96,
+          50.99,
+          51.95,
+          52.1
+        ]
+      }
+    },
+    "viktor": {
+      "name": "Viktor",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 436337,
+        "overallWinRate": 52.13,
+        "wr": [
+          48.35,
+          53.84,
+          53.55,
+          51.65,
+          50.92,
+          51.32
+        ]
+      }
+    },
+    "vladimir": {
+      "name": "Vladimir",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 172355,
+        "overallWinRate": 51.74,
+        "wr": [
+          51.78,
+          49.18,
+          50.59,
+          52.67,
+          54.1,
+          56.99
+        ]
+      }
+    },
+    "volibear": {
+      "name": "Volibear",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 168945,
+        "overallWinRate": 51.14,
+        "wr": [
+          50.87,
+          52.24,
+          51.54,
+          50.55,
+          50.54,
+          50.31
+        ]
+      }
+    },
+    "warwick": {
+      "name": "Warwick",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 121636,
+        "overallWinRate": 52.71,
+        "wr": [
+          56.78,
+          54.48,
+          53.05,
+          51.32,
+          51.56,
+          51.14
+        ]
+      }
+    },
+    "xayah": {
+      "name": "Xayah",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 280628,
+        "overallWinRate": 53.06,
+        "wr": [
+          52.29,
+          52.73,
+          52.69,
+          53.34,
+          53.44,
+          55.39
+        ]
+      }
+    },
+    "xerath": {
+      "name": "Xerath",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 347231,
+        "overallWinRate": 53.33,
+        "wr": [
+          54.42,
+          54.04,
+          52.68,
+          52.96,
+          53.88,
+          54.14
+        ]
+      }
+    },
+    "xinzhao": {
+      "name": "Xin Zhao",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 322802,
+        "overallWinRate": 52.78,
+        "wr": [
+          48.99,
+          52.43,
+          53.79,
+          53.07,
+          53.02,
+          53.35
+        ]
+      }
+    },
+    "yasuo": {
+      "name": "Yasuo",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 465251,
+        "overallWinRate": 51.25,
+        "wr": [
+          50.75,
+          53.84,
+          51.15,
+          50.28,
+          50.6,
+          52.04
+        ]
+      }
+    },
+    "yone": {
+      "name": "Yone",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 300262,
+        "overallWinRate": 49.98,
+        "wr": [
+          46.91,
+          49.11,
+          49.95,
+          50.86,
+          50.72,
+          52.06
+        ]
+      }
+    },
+    "yorick": {
+      "name": "Yorick",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 197440,
+        "overallWinRate": 51.85,
+        "wr": [
+          56.47,
+          58.2,
+          52.42,
+          48.52,
+          47.43,
+          48.7
+        ]
+      }
+    },
+    "yunara": {
+      "name": "Yunara",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 487043,
+        "overallWinRate": 49.71,
+        "wr": [
+          47.48,
+          48.03,
+          48.94,
+          50.81,
+          52.41,
+          53.24
+        ]
+      }
+    },
+    "yuumi": {
+      "name": "Yuumi",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 272219,
+        "overallWinRate": 49.45,
+        "wr": [
+          47.44,
+          41.95,
+          47.5,
+          53.62,
+          57.25,
+          58.08
+        ]
+      }
+    },
+    "zaahen": {
+      "name": "Zaahen",
+      "primaryRole": "top",
+      "stats": {
+        "totalGames": 217947,
+        "overallWinRate": 51.23,
+        "wr": [
+          45.67,
+          49.02,
+          51.65,
+          52.62,
+          53.41,
+          53.25
+        ]
+      }
+    },
+    "zac": {
+      "name": "Zac",
+      "primaryRole": "jungle",
+      "stats": {
+        "totalGames": 136088,
+        "overallWinRate": 51.9,
+        "wr": [
+          51.92,
+          52.11,
+          51.37,
+          51.71,
+          53.02,
+          53.18
+        ]
+      }
+    },
+    "zed": {
+      "name": "Zed",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 388003,
+        "overallWinRate": 51.35,
+        "wr": [
+          54.67,
+          50.47,
+          50.71,
+          51.48,
+          51.49,
+          51.02
+        ]
+      }
+    },
+    "zeri": {
+      "name": "Zeri",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 112093,
+        "overallWinRate": 51.57,
+        "wr": [
+          45.8,
+          46.88,
+          51.04,
+          54.41,
+          55.99,
+          55.11
+        ]
+      }
+    },
+    "ziggs": {
+      "name": "Ziggs",
+      "primaryRole": "bottom",
+      "stats": {
+        "totalGames": 89683,
+        "overallWinRate": 52.99,
+        "wr": [
+          54.43,
+          60,
+          55.92,
+          50.07,
+          48.48,
+          48.56
+        ]
+      }
+    },
+    "zilean": {
+      "name": "Zilean",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 163048,
+        "overallWinRate": 53.41,
+        "wr": [
+          50.51,
+          51.4,
+          53.2,
+          54.66,
+          54.76,
+          54.22
+        ]
+      }
+    },
+    "zoe": {
+      "name": "Zoe",
+      "primaryRole": "middle",
+      "stats": {
+        "totalGames": 201965,
+        "overallWinRate": 52.17,
+        "wr": [
+          59.67,
+          54.16,
+          51.53,
+          50.32,
+          50.45,
+          50.47
+        ]
+      }
+    },
+    "zyra": {
+      "name": "Zyra",
+      "primaryRole": "support",
+      "stats": {
+        "totalGames": 153602,
+        "overallWinRate": 52.55,
+        "wr": [
+          51.68,
+          54.75,
+          53.26,
+          51.53,
+          51.58,
+          53.56
+        ]
+      }
+    }
+  }
+}

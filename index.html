@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League Champion Scaling</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+    }
+    body {
+      background: #0a0a0a;
+      color: #cfcfcf;
+      font-family: Segoe UI, system-ui, -apple-system, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      border-bottom: 1px solid #1d1d1d;
+      padding: 18px 20px 12px;
+      background: #111;
+      text-align: center;
+    }
+    h1 { font-size: 24px; color: #efefef; }
+    #subtitle { margin-top: 6px; color: #8e8e8e; font-size: 13px; }
+    #subtitle a { color: #72b8ea; text-decoration: none; }
+
+    .layout {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .sidebar {
+      width: 320px;
+      border-right: 1px solid #1d1d1d;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .roles {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-bottom: 1px solid #1d1d1d;
+      flex-wrap: wrap;
+    }
+    .role-btn {
+      width: 52px;
+      height: 52px;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      background: #151515;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .role-btn:hover { border-color: #4a4a4a; }
+    .role-btn.active { border-color: #d4a63f; background: #252015; }
+    .role-btn img { width: 28px; height: 28px; }
+
+    .search-wrap { padding: 10px 12px; border-bottom: 1px solid #1d1d1d; }
+    #search {
+      width: 100%;
+      background: #0f0f0f;
+      border: 1px solid #2a2a2a;
+      color: #d7d7d7;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 13px;
+      outline: none;
+    }
+    #search:focus { border-color: #4a6f89; }
+
+    .champ-list {
+      list-style: none;
+      overflow-y: auto;
+      min-height: 0;
+      flex: 1;
+      padding: 8px 0;
+      scrollbar-width: thin;
+      scrollbar-color: #2a2a2a transparent;
+    }
+    .champ-list::-webkit-scrollbar {
+      width: 8px;
+    }
+    .champ-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .champ-list::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    .champ-list::-webkit-scrollbar-thumb:hover {
+      background: #3a3a3a;
+      background-clip: padding-box;
+    }
+    .champ-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      border-left: 3px solid transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+    .champ-row:hover { background: #181818; }
+    .champ-row.selected {
+      background: #162330;
+      border-left-color: var(--line-color, #5da9de);
+    }
+    .champ-row img {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border: 1px solid #303030;
+      background: #1a1a1a;
+    }
+    .champ-name { font-size: 13px; color: #d5d5d5; flex: 1; }
+    .champ-wr { font-size: 12px; font-weight: 600; }
+
+    .main {
+      flex: 1;
+      padding: 16px;
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .legend {
+      min-height: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: center;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #b8b8b8;
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      padding: 3px 8px;
+      cursor: pointer;
+      background: #121212;
+    }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .chart-wrap {
+      flex: 1;
+      min-height: 360px;
+      border: 1px solid #1d1d1d;
+      border-radius: 10px;
+      background: #101010;
+      padding: 14px;
+      position: relative;
+    }
+    #hint { color: #6d6d6d; font-size: 13px; text-align: center; }
+    .footnote {
+      color: #626262;
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    .faint-tail {
+      opacity: 0.38;
+      filter: blur(0.45px);
+    }
+
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #1d1d1d; max-height: 300px; height: auto; }
+      .chart-wrap { min-height: 320px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Champion Win Rate vs Game Length</h1>
+    <p id="subtitle">Loading data...</p>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="roles" id="roles"></div>
+      <div class="search-wrap">
+        <input id="search" type="text" placeholder="Search champion...">
+      </div>
+      <ul class="champ-list" id="champions"></ul>
+    </aside>
+
+    <main class="main">
+      <div class="legend" id="legend"></div>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      <p id="hint">Select champions from the left to compare scaling in the selected role.</p>
+      <p class="footnote">This project is independent and is not affiliated with or endorsed by Riot Games or LoLalytics. &middot; Also, not affiliated with <a href="https://vgen.co/elfpoles" target="_blank" rel="noopener noreferrer" style="color:#8aa0ae;text-decoration:none;">Elfpoles</a>, the game developer & graphics designer. <span class="faint-tail">ily</span></p>
+    </main>
+  </div>
+
+  <script src="./champion-scaling-data.js"></script>
+  <script>
+    const ROLE_META = {
+      top: { label: "Top", icon: "https://cdn5.lolalytics.com/lane54/top.webp" },
+      jungle: { label: "Jungle", icon: "https://cdn5.lolalytics.com/lane54/jungle.webp" },
+      middle: { label: "Middle", icon: "https://cdn5.lolalytics.com/lane54/middle.webp" },
+      bottom: { label: "Bottom", icon: "https://cdn5.lolalytics.com/lane54/bottom.webp" },
+      support: { label: "Support", icon: "https://cdn5.lolalytics.com/lane54/support.webp" }
+    };
+
+    const COLORS = [
+      "#e85050", "#4ea6ea", "#5dd06a", "#e4bd4d", "#c16ce3",
+      "#eb7d4a", "#4ad0cf", "#f05b98", "#8acb48", "#8f9fff"
+    ];
+
+    const LABELS = ["15-20", "20-25", "25-30", "30-35", "35-40", "40+"];
+    const STORAGE_KEY = "lolScalingSelectionV1";
+    const DEFAULT_SELECTION = ["missfortune", "vayne", "kogmaw", "ezreal"];
+
+    let payload = null;
+    let currentRole = "bottom";
+    let selected = [];
+    let searchText = "";
+    const iconCache = {};
+
+    const roleEl = document.getElementById("roles");
+    const champsEl = document.getElementById("champions");
+    const legendEl = document.getElementById("legend");
+    const searchEl = document.getElementById("search");
+    const hintEl = document.getElementById("hint");
+    const subtitleEl = document.getElementById("subtitle");
+
+    const chart = new Chart(document.getElementById("chart").getContext("2d"), {
+      type: "line",
+      data: { labels: LABELS, datasets: [] },
+      plugins: [{
+        id: "champIcons",
+        afterDatasetsDraw(c) {
+          const ctx = c.ctx;
+          const size = 22;
+          const xOffset = 8;
+          c.data.datasets.forEach((ds, i) => {
+            const key = selected[i];
+            if (!key || !iconCache[key]) return;
+            const meta = c.getDatasetMeta(i);
+            if (!meta || !meta.visible) return;
+            const pt = meta.data[meta.data.length - 1];
+            if (!pt) return;
+
+            const x = pt.x + xOffset;
+            const y = pt.y - size / 2;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(x + size / 2, y + size / 2, size / 2, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+            ctx.drawImage(iconCache[key], x, y, size, size);
+            ctx.restore();
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(x + size / 2, y + size / 2, size / 2, 0, Math.PI * 2);
+            ctx.strokeStyle = ds.borderColor;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.restore();
+          });
+        }
+      }],
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: { right: 40 } },
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "#1a1a1a",
+            borderColor: "#333",
+            borderWidth: 1,
+            callbacks: {
+              label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#656565" },
+            grid: { color: "#1c1c1c" },
+            title: { display: true, text: "Game Length (minutes)", color: "#6f6f6f" }
+          },
+          y: {
+            ticks: { color: "#656565", callback: (v) => v + "%" },
+            grid: { color: "#1c1c1c" },
+            title: { display: true, text: "Win Rate", color: "#6f6f6f" },
+            suggestedMin: 45,
+            suggestedMax: 57
+          }
+        }
+      }
+    });
+
+    function champIconUrl(key) {
+      return `https://cdn5.lolalytics.com/champx46/${key}.webp`;
+    }
+
+    function preloadIcon(key) {
+      if (key in iconCache) return;
+      iconCache[key] = null;
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = `https://cdn5.lolalytics.com/champx92/${key}.webp`;
+      img.onload = () => {
+        iconCache[key] = img;
+        chart.draw();
+      };
+    }
+
+    function formatDate(iso) {
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return "Unknown";
+      return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+    }
+
+    function saveSelection() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          role: currentRole,
+          selected
+        }));
+      } catch {
+        // Ignore storage errors
+      }
+    }
+
+    function loadSelection() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return parsed && typeof parsed === "object" ? parsed : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function listForRole(role) {
+      return Object.entries(payload.champions)
+        .filter(([, c]) => c.primaryRole === role)
+        .filter(([, c]) => c.name.toLowerCase().includes(searchText))
+        .sort((a, b) => b[1].stats.overallWinRate - a[1].stats.overallWinRate);
+    }
+
+    function renderRoles() {
+      roleEl.innerHTML = payload.metadata.roles.map((r) => {
+        const meta = ROLE_META[r];
+        const active = r === currentRole ? "active" : "";
+        return `<button class="role-btn ${active}" data-role="${r}" title="${meta.label}"><img src="${meta.icon}" alt="${meta.label}"></button>`;
+      }).join("");
+
+      roleEl.querySelectorAll(".role-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentRole = btn.dataset.role;
+          saveSelection();
+          renderRoles();
+          renderChampions();
+          renderChart();
+        });
+      });
+    }
+
+    function renderChampions() {
+      const rows = listForRole(currentRole);
+      champsEl.innerHTML = rows.map(([key, c]) => {
+        const roleStats = c.stats;
+        const i = selected.indexOf(key);
+        const selectedClass = i >= 0 ? "selected" : "";
+        const color = i >= 0 ? COLORS[i % COLORS.length] : "transparent";
+        const wrColor = roleStats.overallWinRate >= 52 ? "#6dcc84" : roleStats.overallWinRate >= 50 ? "#c4c4c4" : "#d07b7b";
+        return `<li class="champ-row ${selectedClass}" data-key="${key}" style="--line-color:${color}">
+          <img src="${champIconUrl(key)}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'">
+          <span class="champ-name">${c.name}</span>
+          <span class="champ-wr" style="color:${wrColor}">${roleStats.overallWinRate.toFixed(2)}%</span>
+        </li>`;
+      }).join("");
+
+      champsEl.querySelectorAll(".champ-row").forEach((row) => {
+        row.addEventListener("click", () => {
+          const key = row.dataset.key;
+          const idx = selected.indexOf(key);
+          if (idx >= 0) {
+            selected.splice(idx, 1);
+          } else {
+            if (selected.length >= 10) return;
+            selected.push(key);
+            preloadIcon(key);
+          }
+          saveSelection();
+          renderChampions();
+          renderChart();
+        });
+      });
+    }
+
+    function renderLegend() {
+      legendEl.innerHTML = selected.map((key, i) => {
+        const c = payload.champions[key];
+        const color = COLORS[i % COLORS.length];
+        return `<span class="chip" data-key="${key}"><span class="dot" style="background:${color}"></span>${c.name} x</span>`;
+      }).join("");
+
+      legendEl.querySelectorAll(".chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const key = chip.dataset.key;
+          selected = selected.filter((k) => k !== key);
+          saveSelection();
+          renderChampions();
+          renderChart();
+        });
+      });
+    }
+
+    function renderChart() {
+      const datasets = selected.map((key, i) => {
+        const c = payload.champions[key];
+        const roleStats = c.stats;
+        return {
+          label: c.name,
+          data: roleStats.wr,
+          borderColor: COLORS[i % COLORS.length],
+          pointBackgroundColor: COLORS[i % COLORS.length],
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          borderWidth: 2.5,
+          tension: 0.28
+        };
+      });
+
+      chart.data.datasets = datasets;
+      if (datasets.length) {
+        const values = datasets.flatMap((d) => d.data);
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        chart.options.scales.y.suggestedMin = Math.floor(min - 2);
+        chart.options.scales.y.suggestedMax = Math.ceil(max + 2);
+      }
+      chart.update();
+      renderLegend();
+      hintEl.textContent = datasets.length ? "" : "Select champions from the left to compare scaling in the selected role.";
+    }
+
+    async function init() {
+      payload = window.__CHAMPION_SCALING_DATA__ || null;
+
+      if (!payload) {
+        try {
+          const response = await fetch("./champion-scaling-data.json", { cache: "no-cache" });
+          payload = await response.json();
+        } catch {
+          subtitleEl.textContent = "Failed to load data (need champion-scaling-data.js or champion-scaling-data.json in same folder).";
+          return;
+        }
+      }
+
+      subtitleEl.innerHTML = `Source: <a href="https://lolalytics.com">lolalytics.com</a> &middot; Last 30 Days &middot; Emerald+ &middot; Ranked Solo/Duo &middot; Last updated: ${formatDate(payload.metadata.fetchedAt)}`;
+
+      searchEl.addEventListener("input", () => {
+        searchText = searchEl.value.trim().toLowerCase();
+        renderChampions();
+      });
+
+      if (!payload.metadata.roles.includes(currentRole)) {
+        currentRole = payload.metadata.roles[0];
+      }
+
+      const saved = loadSelection();
+      if (saved && payload.metadata.roles.includes(saved.role)) {
+        currentRole = saved.role;
+      }
+
+      if (saved && Array.isArray(saved.selected)) {
+        selected = saved.selected
+          .filter((key) => payload.champions[key])
+          .slice(0, 10);
+      }
+
+      if (!selected.length) {
+        selected = DEFAULT_SELECTION.filter((key) => payload.champions[key]);
+      }
+
+      selected.forEach(preloadIcon);
+
+      renderRoles();
+      renderChampions();
+      renderChart();
+    }
+
+    init();
+  </script>
+</body>
+</html>
