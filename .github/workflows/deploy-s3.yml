@@ -1,0 +1,42 @@
+name: Refresh data and deploy to S3
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate latest champion data
+        run: node fetch-champion-scaling.js
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Upload static site to S3
+        run: |
+          aws s3 cp index.html s3://elfpoles.com/index.html --content-type "text/html; charset=utf-8" --cache-control "public,max-age=300"
+          aws s3 cp favicon.svg s3://elfpoles.com/favicon.svg --content-type "image/svg+xml" --cache-control "public,max-age=86400"
+          aws s3 cp champion-scaling-data.json s3://elfpoles.com/champion-scaling-data.json --content-type "application/json; charset=utf-8" --cache-control "public,max-age=300"
+          aws s3 cp champion-scaling-data.js s3://elfpoles.com/champion-scaling-data.js --content-type "application/javascript; charset=utf-8" --cache-control "public,max-age=300"
+
+      # Optional CloudFront invalidation:
+      # - name: Invalidate CloudFront
+      #   if: ${{ secrets.CF_DISTRIBUTION_ID != '' }}
+      #   run: aws cloudfront create-invalidation --distribution-id "${{ secrets.CF_DISTRIBUTION_ID }}" --paths "/*"
