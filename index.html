@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>League Champion Scaling</title>
+  <title>Elfpoles - LoL Champion Scaling (Win Rate vs Game Length)</title>
+  <meta name="description" content="League of Legends champion scaling by role (top, jungle, mid, adc, support). Compare win rate vs game length curves and late-game scaling patterns.">
+  <link rel="canonical" href="https://elfpoles.com/">
+  <meta property="og:title" content="LoL Champion Scaling by Role">
+  <meta property="og:description" content="Compare League of Legends champion win rate vs game length by role.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elfpoles.com/">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
   <style>
@@ -187,9 +193,35 @@
     }
 
     @media (max-width: 900px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #1d1d1d; max-height: 300px; height: auto; }
-      .chart-wrap { min-height: 320px; }
+      html, body {
+        height: auto;
+      }
+      body {
+        min-height: 100vh;
+        height: auto;
+        overflow: auto;
+      }
+      .layout {
+        flex-direction: column;
+        flex: none;
+        min-height: 0;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1d1d1d;
+        max-height: 42vh;
+        height: auto;
+      }
+      .main {
+        height: auto;
+        min-height: 0;
+      }
+      .chart-wrap {
+        flex: none;
+        height: 44vh;
+        min-height: 260px;
+      }
     }
   </style>
 </head>
@@ -225,6 +257,13 @@
       bottom: { label: "Bottom", icon: "https://cdn5.lolalytics.com/lane54/bottom.webp" },
       support: { label: "Support", icon: "https://cdn5.lolalytics.com/lane54/support.webp" }
     };
+    const ROLE_SHORT = {
+      top: "top",
+      middle: "mid",
+      jungle: "jungle",
+      bottom: "adc",
+      support: "sup"
+    };
 
     const COLORS = [
       "#e85050", "#4ea6ea", "#5dd06a", "#e4bd4d", "#c16ce3",
@@ -232,8 +271,8 @@
     ];
 
     const LABELS = ["15-20", "20-25", "25-30", "30-35", "35-40", "40+"];
-    const STORAGE_KEY = "lolScalingSelectionV1";
-    const DEFAULT_SELECTION = ["missfortune", "vayne", "kogmaw", "ezreal"];
+    const STORAGE_KEY = "lolScalingSelectionV2";
+    const DEFAULT_SELECTION = ["missfortune:bottom", "vayne:bottom", "kogmaw:bottom", "ezreal:bottom"];
 
     let payload = null;
     let currentRole = "bottom";
@@ -258,8 +297,9 @@
           const size = 22;
           const xOffset = 8;
           c.data.datasets.forEach((ds, i) => {
-            const key = selected[i];
-            if (!key || !iconCache[key]) return;
+            const variantId = selected[i];
+            const { championKey } = parseVariantId(variantId || "");
+            if (!championKey || !iconCache[championKey]) return;
             const meta = c.getDatasetMeta(i);
             if (!meta || !meta.visible) return;
             const pt = meta.data[meta.data.length - 1];
@@ -273,7 +313,7 @@
             ctx.arc(x + size / 2, y + size / 2, size / 2, 0, Math.PI * 2);
             ctx.closePath();
             ctx.clip();
-            ctx.drawImage(iconCache[key], x, y, size, size);
+            ctx.drawImage(iconCache[championKey], x, y, size, size);
             ctx.restore();
 
             ctx.save();
@@ -341,6 +381,15 @@
       return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
     }
 
+    function makeVariantId(championKey, role) {
+      return `${championKey}:${role}`;
+    }
+
+    function parseVariantId(variantId) {
+      const [championKey, role] = variantId.split(":");
+      return { championKey, role };
+    }
+
     function saveSelection() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -365,9 +414,9 @@
 
     function listForRole(role) {
       return Object.entries(payload.champions)
-        .filter(([, c]) => c.primaryRole === role)
+        .filter(([, c]) => c.roles && c.roles[role])
         .filter(([, c]) => c.name.toLowerCase().includes(searchText))
-        .sort((a, b) => b[1].stats.overallWinRate - a[1].stats.overallWinRate);
+        .sort((a, b) => b[1].roles[role].overallWinRate - a[1].roles[role].overallWinRate);
     }
 
     function renderRoles() {
@@ -391,14 +440,17 @@
     function renderChampions() {
       const rows = listForRole(currentRole);
       champsEl.innerHTML = rows.map(([key, c]) => {
-        const roleStats = c.stats;
-        const i = selected.indexOf(key);
+        const roleStats = c.roles[currentRole];
+        const variantId = makeVariantId(key, currentRole);
+        const i = selected.indexOf(variantId);
         const selectedClass = i >= 0 ? "selected" : "";
         const color = i >= 0 ? COLORS[i % COLORS.length] : "transparent";
         const wrColor = roleStats.overallWinRate >= 52 ? "#6dcc84" : roleStats.overallWinRate >= 50 ? "#c4c4c4" : "#d07b7b";
-        return `<li class="champ-row ${selectedClass}" data-key="${key}" style="--line-color:${color}">
+        const share = c.roleShares && c.roleShares[currentRole] ? c.roleShares[currentRole] : 0;
+        return `<li class="champ-row ${selectedClass}" data-key="${key}" data-role="${currentRole}" style="--line-color:${color}">
           <img src="${champIconUrl(key)}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'">
           <span class="champ-name">${c.name}</span>
+          <span style="font-size:11px;color:#6f6f6f;min-width:42px;text-align:right;">${Math.round(share * 100)}%</span>
           <span class="champ-wr" style="color:${wrColor}">${roleStats.overallWinRate.toFixed(2)}%</span>
         </li>`;
       }).join("");
@@ -406,12 +458,14 @@
       champsEl.querySelectorAll(".champ-row").forEach((row) => {
         row.addEventListener("click", () => {
           const key = row.dataset.key;
-          const idx = selected.indexOf(key);
+          const role = row.dataset.role;
+          const variantId = makeVariantId(key, role);
+          const idx = selected.indexOf(variantId);
           if (idx >= 0) {
             selected.splice(idx, 1);
           } else {
             if (selected.length >= 10) return;
-            selected.push(key);
+            selected.push(variantId);
             preloadIcon(key);
           }
           saveSelection();
@@ -423,9 +477,12 @@
 
     function renderLegend() {
       legendEl.innerHTML = selected.map((key, i) => {
-        const c = payload.champions[key];
+        const { championKey, role } = parseVariantId(key);
+        const c = payload.champions[championKey];
+        if (!c || !c.roles || !c.roles[role]) return "";
         const color = COLORS[i % COLORS.length];
-        return `<span class="chip" data-key="${key}"><span class="dot" style="background:${color}"></span>${c.name} x</span>`;
+        const roleSuffix = role === c.primaryRole ? "" : ` (${ROLE_SHORT[role] || role})`;
+        return `<span class="chip" data-key="${key}"><span class="dot" style="background:${color}"></span>${c.name}${roleSuffix} x</span>`;
       }).join("");
 
       legendEl.querySelectorAll(".chip").forEach((chip) => {
@@ -441,10 +498,13 @@
 
     function renderChart() {
       const datasets = selected.map((key, i) => {
-        const c = payload.champions[key];
-        const roleStats = c.stats;
+        const { championKey, role } = parseVariantId(key);
+        const c = payload.champions[championKey];
+        if (!c || !c.roles || !c.roles[role]) return null;
+        const roleStats = c.roles[role];
+        const roleSuffix = role === c.primaryRole ? "" : ` (${ROLE_SHORT[role] || role})`;
         return {
-          label: c.name,
+          label: `${c.name}${roleSuffix}`,
           data: roleStats.wr,
           borderColor: COLORS[i % COLORS.length],
           pointBackgroundColor: COLORS[i % COLORS.length],
@@ -453,7 +513,7 @@
           borderWidth: 2.5,
           tension: 0.28
         };
-      });
+      }).filter(Boolean);
 
       chart.data.datasets = datasets;
       if (datasets.length) {
@@ -499,12 +559,18 @@
 
       if (saved && Array.isArray(saved.selected)) {
         selected = saved.selected
-          .filter((key) => payload.champions[key])
+          .filter((variantId) => {
+            const { championKey, role } = parseVariantId(variantId);
+            return payload.champions[championKey] && payload.champions[championKey].roles && payload.champions[championKey].roles[role];
+          })
           .slice(0, 10);
       }
 
       if (!selected.length) {
-        selected = DEFAULT_SELECTION.filter((key) => payload.champions[key]);
+        selected = DEFAULT_SELECTION.filter((variantId) => {
+          const { championKey, role } = parseVariantId(variantId);
+          return payload.champions[championKey] && payload.champions[championKey].roles && payload.champions[championKey].roles[role];
+        });
       }
 
       selected.forEach(preloadIcon);

@@ -5,6 +5,7 @@ const LABELS = ["15-20", "20-25", "25-30", "30-35", "35-40", "40+"];
 const OUTPUT_FILE = "./champion-scaling-data.json";
 const OUTPUT_JS_FILE = "./champion-scaling-data.js";
 const CONCURRENCY = Number(process.env.CONCURRENCY || 10);
+const SECONDARY_ROLE_THRESHOLD = 0.3;
 
 const ID_OVERRIDES = {
   MonkeyKing: "wukong"
@@ -60,7 +61,7 @@ function extractTimeData(qwikData) {
 }
 
 function buildRoleStats(timeData) {
-  const gameBuckets = [
+  const gameBucketsForChart = [
     timeData.time["2"],
     timeData.time["3"],
     timeData.time["4"],
@@ -68,7 +69,7 @@ function buildRoleStats(timeData) {
     timeData.time["6"],
     timeData.time["7"]
   ];
-  const winBuckets = [
+  const winBucketsForChart = [
     timeData.timeWin["2"],
     timeData.timeWin["3"],
     timeData.timeWin["4"],
@@ -77,13 +78,32 @@ function buildRoleStats(timeData) {
     timeData.timeWin["7"]
   ];
 
-  const wr = gameBuckets.map((g, i) => {
+  const gameBucketsAll = [
+    timeData.time["1"],
+    timeData.time["2"],
+    timeData.time["3"],
+    timeData.time["4"],
+    timeData.time["5"],
+    timeData.time["6"],
+    timeData.time["7"]
+  ];
+  const winBucketsAll = [
+    timeData.timeWin["1"],
+    timeData.timeWin["2"],
+    timeData.timeWin["3"],
+    timeData.timeWin["4"],
+    timeData.timeWin["5"],
+    timeData.timeWin["6"],
+    timeData.timeWin["7"]
+  ];
+
+  const wr = gameBucketsForChart.map((g, i) => {
     if (!g) return 0;
-    return Math.round((winBuckets[i] / g) * 10000) / 100;
+    return Math.round((winBucketsForChart[i] / g) * 10000) / 100;
   });
 
-  const totalGames = gameBuckets.reduce((s, v) => s + v, 0);
-  const totalWins = winBuckets.reduce((s, v) => s + v, 0);
+  const totalGames = gameBucketsAll.reduce((s, v) => s + v, 0);
+  const totalWins = winBucketsAll.reduce((s, v) => s + v, 0);
   const overallWinRate = totalGames ? Math.round((totalWins / totalGames) * 10000) / 100 : 0;
 
   return {
@@ -202,7 +222,8 @@ async function main() {
     }
   }
 
-  // Reduce to primary role only (highest totalGames role per champion)
+  // Reduce to primary role + strong secondary roles
+  // A secondary role is included if it is >= 30% of that champion's role distribution.
   for (const [key, champ] of Object.entries(result.champions)) {
     const roleEntries = Object.entries(champ.roles);
     if (!roleEntries.length) {
@@ -210,15 +231,29 @@ async function main() {
       continue;
     }
 
+    const totalAcrossRoles = roleEntries.reduce((sum, [, stats]) => sum + stats.totalGames, 0);
     roleEntries.sort((a, b) => b[1].totalGames - a[1].totalGames);
-    const [primaryRole, primaryStats] = roleEntries[0];
+    const [primaryRole] = roleEntries[0];
+
+    const roleShares = {};
+    const includedRoles = {};
+    for (const [role, stats] of roleEntries) {
+      const share = totalAcrossRoles > 0 ? stats.totalGames / totalAcrossRoles : 0;
+      roleShares[role] = Math.round(share * 10000) / 10000;
+      if (role === primaryRole || share >= SECONDARY_ROLE_THRESHOLD) {
+        includedRoles[role] = stats;
+      }
+    }
 
     result.champions[key] = {
       name: champ.name,
       primaryRole,
-      stats: primaryStats
+      roleShares,
+      roles: includedRoles
     };
   }
+
+  result.metadata.secondaryRoleThreshold = SECONDARY_ROLE_THRESHOLD;
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
   fs.writeFileSync(

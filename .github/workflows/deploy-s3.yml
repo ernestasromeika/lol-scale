@@ -1,6 +1,9 @@
 name: Refresh data and deploy to S3
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: "0 */6 * * *"
@@ -32,6 +35,7 @@ jobs:
       - name: Upload static site to S3
         run: |
           aws s3 cp index.html s3://elfpoles.com/index.html --content-type "text/html; charset=utf-8" --cache-control "public,max-age=300"
+          aws s3 cp elfpoles.png s3://elfpoles.com/elfpoles.png --content-type "image/png" --cache-control "public,max-age=86400"
           aws s3 cp favicon.svg s3://elfpoles.com/favicon.svg --content-type "image/svg+xml" --cache-control "public,max-age=86400"
           aws s3 cp champion-scaling-data.json s3://elfpoles.com/champion-scaling-data.json --content-type "application/json; charset=utf-8" --cache-control "public,max-age=300"
           aws s3 cp champion-scaling-data.js s3://elfpoles.com/champion-scaling-data.js --content-type "application/javascript; charset=utf-8" --cache-control "public,max-age=300"
