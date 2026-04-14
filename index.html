@@ -446,11 +446,9 @@
         const selectedClass = i >= 0 ? "selected" : "";
         const color = i >= 0 ? COLORS[i % COLORS.length] : "transparent";
         const wrColor = roleStats.overallWinRate >= 52 ? "#6dcc84" : roleStats.overallWinRate >= 50 ? "#c4c4c4" : "#d07b7b";
-        const share = c.roleShares && c.roleShares[currentRole] ? c.roleShares[currentRole] : 0;
         return `<li class="champ-row ${selectedClass}" data-key="${key}" data-role="${currentRole}" style="--line-color:${color}">
           <img src="${champIconUrl(key)}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'">
           <span class="champ-name">${c.name}</span>
-          <span style="font-size:11px;color:#6f6f6f;min-width:42px;text-align:right;">${Math.round(share * 100)}%</span>
           <span class="champ-wr" style="color:${wrColor}">${roleStats.overallWinRate.toFixed(2)}%</span>
         </li>`;
       }).join("");
