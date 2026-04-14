@@ -364,14 +364,26 @@
     }
 
     function preloadIcon(key) {
-      if (key in iconCache) return;
-      iconCache[key] = null;
+      const championKey = (key || "").split(":")[0];
+      if (!championKey) return;
+      if (championKey in iconCache) return;
+      iconCache[championKey] = null;
       const img = new Image();
       img.crossOrigin = "anonymous";
-      img.src = `https://cdn5.lolalytics.com/champx92/${key}.webp`;
+      img.src = `https://cdn5.lolalytics.com/champx92/${championKey}.webp`;
       img.onload = () => {
-        iconCache[key] = img;
+        iconCache[championKey] = img;
         chart.draw();
+      };
+      img.onerror = () => {
+        // If x92 is missing, fallback to x46
+        const fallback = new Image();
+        fallback.crossOrigin = "anonymous";
+        fallback.src = `https://cdn5.lolalytics.com/champx46/${championKey}.webp`;
+        fallback.onload = () => {
+          iconCache[championKey] = fallback;
+          chart.draw();
+        };
       };
     }
 
@@ -571,7 +583,10 @@
         });
       }
 
-      selected.forEach(preloadIcon);
+      selected.forEach((variantId) => {
+        const { championKey } = parseVariantId(variantId);
+        preloadIcon(championKey);
+      });
 
       renderRoles();
       renderChampions();
