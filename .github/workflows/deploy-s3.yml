@@ -39,6 +39,8 @@ jobs:
           aws s3 cp favicon.svg s3://elfpoles.com/favicon.svg --content-type "image/svg+xml" --cache-control "public,max-age=86400"
           aws s3 cp champion-scaling-data.json s3://elfpoles.com/champion-scaling-data.json --content-type "application/json; charset=utf-8" --cache-control "public,max-age=300"
           aws s3 cp champion-scaling-data.js s3://elfpoles.com/champion-scaling-data.js --content-type "application/javascript; charset=utf-8" --cache-control "public,max-age=300"
+          aws s3 cp robots.txt s3://elfpoles.com/robots.txt --content-type "text/plain; charset=utf-8" --cache-control "public,max-age=86400"
+          aws s3 cp sitemap.xml s3://elfpoles.com/sitemap.xml --content-type "application/xml; charset=utf-8" --cache-control "public,max-age=3600"
 
       # Optional CloudFront invalidation:
       # - name: Invalidate CloudFront
