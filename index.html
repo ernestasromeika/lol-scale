@@ -424,6 +424,67 @@
       }
     }
 
+    function championKeyFromQuery(value) {
+      const normalized = (value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      if (!normalized) return null;
+      return Object.keys(payload.champions).find((key) => {
+        const champion = payload.champions[key];
+        return key.toLowerCase() === normalized ||
+          champion.name.toLowerCase().replace(/[^a-z0-9]/g, "") === normalized;
+      }) || null;
+    }
+
+    function loadSelectionFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const hasRole = params.has("role");
+      const hasChampions = params.has("champions");
+      if (!hasRole && !hasChampions) return false;
+
+      const requestedRole = (params.get("role") || "").toLowerCase();
+      if (payload.metadata.roles.includes(requestedRole)) {
+        currentRole = requestedRole;
+      }
+
+      if (hasChampions) {
+        const seen = new Set();
+        selected = (params.get("champions") || "")
+          .split(",")
+          .map((value) => value.trim())
+          .filter(Boolean)
+          .map((value) => {
+            const separator = value.lastIndexOf(":");
+            const championValue = separator >= 0 ? value.slice(0, separator) : value;
+            const requestedVariantRole = separator >= 0 ? value.slice(separator + 1).toLowerCase() : currentRole;
+            const championKey = championKeyFromQuery(championValue);
+            if (!championKey || !payload.metadata.roles.includes(requestedVariantRole)) return null;
+            if (!payload.champions[championKey].roles?.[requestedVariantRole]) return null;
+            return makeVariantId(championKey, requestedVariantRole);
+          })
+          .filter((variantId) => {
+            if (!variantId || seen.has(variantId)) return false;
+            seen.add(variantId);
+            return true;
+          })
+          .slice(0, 10);
+      }
+
+      return true;
+    }
+
+    function syncUrl() {
+      const championValues = selected.map((variantId) => {
+        const { championKey, role } = parseVariantId(variantId);
+        return role === currentRole ? championKey : `${championKey}:${role}`;
+      });
+      const query = `role=${encodeURIComponent(currentRole)}&champions=${championValues.map(encodeURIComponent).join(",")}`;
+      history.replaceState(null, "", `${window.location.pathname}?${query}${window.location.hash}`);
+    }
+
+    function persistSelection() {
+      saveSelection();
+      syncUrl();
+    }
+
     function listForRole(role) {
       return Object.entries(payload.champions)
         .filter(([, c]) => c.roles && c.roles[role])
@@ -441,7 +502,7 @@
       roleEl.querySelectorAll(".role-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           currentRole = btn.dataset.role;
-          saveSelection();
+          persistSelection();
           renderRoles();
           renderChampions();
           renderChart();
@@ -478,7 +539,7 @@
             selected.push(variantId);
             preloadIcon(key);
           }
-          saveSelection();
+          persistSelection();
           renderChampions();
           renderChart();
         });
@@ -499,7 +560,7 @@
         chip.addEventListener("click", () => {
           const key = chip.dataset.key;
           selected = selected.filter((k) => k !== key);
-          saveSelection();
+          persistSelection();
           renderChampions();
           renderChart();
         });
@@ -562,18 +623,21 @@
         currentRole = payload.metadata.roles[0];
       }
 
-      const saved = loadSelection();
-      if (saved && payload.metadata.roles.includes(saved.role)) {
-        currentRole = saved.role;
-      }
+      const loadedFromUrl = loadSelectionFromUrl();
+      if (!loadedFromUrl) {
+        const saved = loadSelection();
+        if (saved && payload.metadata.roles.includes(saved.role)) {
+          currentRole = saved.role;
+        }
 
-      if (saved && Array.isArray(saved.selected)) {
-        selected = saved.selected
-          .filter((variantId) => {
-            const { championKey, role } = parseVariantId(variantId);
-            return payload.champions[championKey] && payload.champions[championKey].roles && payload.champions[championKey].roles[role];
-          })
-          .slice(0, 10);
+        if (saved && Array.isArray(saved.selected)) {
+          selected = saved.selected
+            .filter((variantId) => {
+              const { championKey, role } = parseVariantId(variantId);
+              return payload.champions[championKey] && payload.champions[championKey].roles && payload.champions[championKey].roles[role];
+            })
+            .slice(0, 10);
+        }
       }
 
       if (!selected.length) {
@@ -587,6 +651,8 @@
         const { championKey } = parseVariantId(variantId);
         preloadIcon(championKey);
       });
+
+      persistSelection();
 
       renderRoles();
       renderChampions();
